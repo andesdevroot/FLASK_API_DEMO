@@ -1,3 +1,4 @@
+from werkzeug.security import safe_str_cmp
 from user import User
 
 users = [
@@ -7,11 +8,11 @@ users = [
 username_mapping = { u.username: u for u in users }
 userid_mapping = { u.id: u for u in users }
 
-# fucntion to validate user
+# function to validate user
 
 def authenticate(username, password):
     user = username_mapping.get(username, None)
-    if user and user.password == password:
+    if user and safe_str_cmp(user.password, password):
         return user
     
 
