@@ -4,19 +4,8 @@ users = [
     User(1, 'admin', 'admin')
 ]
 
-username_mapping = { 'admin': {
-    'id': 1,
-    'username': 'admin',
-    'password': 'admin'
-    }
-}
-
-userid_mapping = { 1: {
-    'id': 1,
-    'username': 'admin',
-    'password': 'admin'
-    }
-}
+username_mapping = { u.username: u for u in users }
+userid_mapping = { u.id: u for u in users }
 
 # fucntion to validate user
 
