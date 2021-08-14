@@ -17,12 +17,13 @@ class Item(Resource):
     def post(self, name):
         item =  {'name': name, 'price': 5.000}
         items.append(item)
-        return item
+        return item, 201
     
-api.add_resource(Item, '/item/<string:name>') 
+api.add_resource(Item, '/item/<string:name>')
 
 
-app.run(port=5000)
+app.run(port=5000, debug=True)
+
 
 
 
